@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 function ProgressTracking() {
   const [goals, setGoals] = useState([]);
 
-  const API_URL = 'http://localhost:5163/goals';
+  const API_URL = 'http://localhost:5000/goals';
 
   useEffect(() => {
     fetchGoals();

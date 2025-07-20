@@ -6,13 +6,15 @@ import Overview from "./Components/Overview"
 
 
 function App() {
+
   return (
+    
     <>
-    <AddNewFinancialGoals/>
-    <ProgressTracker/>
-    <MakeDeposit/>
-    <Overview/>
-    </>
+    <AddNewFinancialGoals />
+    <ProgressTracker />
+    <MakeDeposit />
+    <Overview /></>
+    
   )
 
 }

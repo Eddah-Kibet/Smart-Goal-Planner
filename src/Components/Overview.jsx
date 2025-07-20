@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 function Overview() {
   const [goals, setGoals] = useState([]);
-  const API_URL = 'http://localhost:5173/goals';
+  const API_URL = 'http://localhost:5000/goals';
 
   useEffect(() => {
     const fetchGoals = async () => {

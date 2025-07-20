@@ -10,7 +10,7 @@ function AddNewFinancialGoals() {
     });
     const [editingGoal, setEditingGoal] = useState(null);
 
-    const API_URL = 'https://localhost:5163/goals';
+    const API_URL = 'https://localhost:5000/goals';
 
     useEffect(() => {
         fetch(API_URL)
@@ -88,55 +88,59 @@ function AddNewFinancialGoals() {
 
   return (
     <div style ={{ padding: '20px',maxwidth: '500px'}}>
-        <h2>Add Financial Goals</h2>
-        <form onSumbit={handleSubmit}>
+        <h2 style={{textAlign: 'center'}}>Add Financial Goals</h2>
+        <form onSumbit={handleSubmit}style={{maxWidth: '500px'}}>
             <div>
-                <label>Goal Name</label>
+                <label>Goal Name:  </label>
                     <input
                         type="text"
                         name="name"
                         value={goals.name}
                         onChange={handleChange}
                         placeholder="Enter goal name"
+                        style={{padding: '5px', borderRadius: '5', border: '1px solid #ccc',marginBottom: '10px'}}
                         required
                     />
             </div>
 
-            {/* <div>
-                <label>Target Name</label>
+            <div>
+                <label>Target Name:  </label>
                     <input
                         type="number"
                         name="targetAmount"
                         value={goals.targetAmount}
                         onChange={handleChange}
                         placeholder="...Eg 1000"
+                        style={{padding: '5px', borderRadius: '5', border: '1px solid #ccc',marginBottom: '10px'}}
                         required
                 />
-            </div> */}
+            </div>
 
             <div>
-                <label>Category:</label>
+                <label>Category:  </label>
                     <input
                         type="text"
                         name="category"
                         value={goals.category}
                         onChange={handleChange}
                         placeholder="eg savings"
+                        style={{padding: '5px', borderRadius: '5', border: '1px solid #ccc',marginBottom: '10px'}}
                         required
                 />
             </div>
 
             <div>
-                <label>Deadline:</label>
+                <label>Deadline:  </label>
                     <input
                         type="date"
                         value={goals.deadline}
                         name="deadline"
                         onChange={handleChange}
+                        style={{padding: '5px', borderRadius: '5', border: '1px solid #ccc',marginBottom: '10px',}}
                     />
             </div>
 
-            <button type="submit">
+            <button type="submit" style={{backgroundColor:'green',padding: '10px', borderRadius: '5px', color: 'white'}}>
                 {editingGoal ? 'Update Goal' : 'Add Goal'}
             </button>
         </form>

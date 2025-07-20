@@ -5,7 +5,7 @@ function MakeDeposit() {
   const [selectedGoalId, setSelectedGoalId] = useState('');
   const [depositAmount, setDepositAmount] = useState('');
 
-  const API_URL = 'http://localhost:5163/goals';
+  const API_URL = 'http://localhost:5000/goals';
 
   // Fetch goals using fetch API
   useEffect(() => {
@@ -62,19 +62,21 @@ function MakeDeposit() {
     }
   };
 
+  console.log(goals);
+
   return (
     <div style={{ padding: '20px', maxWidth: '400px' }}>
       <h2>Make a Deposit</h2>
 
       <form onSubmit={handleDeposit}>
         <div>
-          <label>Select Goal:</label>
+          <label>Select Goal:  </label>
           <select
             value={selectedGoalId}
             onChange={(e) => setSelectedGoalId(e.target.value)}
             required
           >
-            <option value="">--Select--</option>
+            <option value="">  --Select-- </option> 
             <option value="">Short-Term goals(0-2 years)</option>
             <option value="">Medium-Term goals(2-5 years)</option>
             <option value="">Long-Term goals(5+ years)</option>
@@ -84,15 +86,17 @@ function MakeDeposit() {
             <option value="">Security goals</option>
             <option value="">Charitable goals</option>
 
-            {goals.map((goal) => (
-              <option key={goal.id} value={goal.id}>
-                {goal.name}
+            {goals.map((goals) => (
+              <option key={goals.id} value={goals.id}>
+                {goals.name}
               </option>
             ))}
           </select>
         </div>
 
-        <div>
+<p>Selected Goal ID: {selectedGoalId}</p>
+
+        <div style={{ marginTop: '10px' }}>
           <label>Deposit Amount:</label>
           <input
             type="number"
@@ -103,7 +107,7 @@ function MakeDeposit() {
           />
         </div>
 
-        <button type="submit">Add Deposit</button>
+        <button type="submit" style={{marginTop:'10px', backgroundColor: 'green', color: 'white' }}>Add Deposit</button>
       </form>
     </div>
   );
